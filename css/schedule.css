@@ -1,0 +1,176 @@
+@import url('main.css');
+body {
+    margin: 0;
+    background-color: var(--surface-background);
+}
+
+.nav_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-text);
+    border: 2px solid var(--surface-surface-stroke);
+    border-radius: 30px;
+    padding: 1.875rem 3.125rem;
+    margin: 2.1875rem;
+    margin-bottom: 1.5625rem;
+    position: fixed;
+    width: 90vw;
+    background: var(--surface-surface);
+}
+
+.nav_wrapper .left_nav,
+.right_nav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_wrapper ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 2.1875rem;
+    padding-left: 3.125rem;
+}
+
+.nav_wrapper .nav_item.active {
+    color: var(--blue-light);
+}
+
+.right_nav .name {
+    padding-right: 0.9375rem;
+}
+
+.right_nav button {
+    height: 2.0625rem;
+    width: 5.625rem;
+    border: none;
+    border-radius: 11px;
+    padding: 0.4375rem 1.25rem;
+    background-color: var(--red-light-red);
+    color: var(--red-red);
+}
+
+.days_wrapper {
+    display: flex;
+    padding-top: 20vh;
+}
+
+div.day {
+    height: 100%;
+    width: 20vw;
+    margin: 0 1vw;
+    border: 2px solid var(--surface-surface-stroke);
+    border-radius: 30px;
+    padding: 3.2vh 1.6vw;
+    min-width: 300px;
+    background: var(--surface-surface);
+}
+
+div.day:first-child {
+    margin-left: 35px;
+}
+
+p.static {
+    font-size: 1rem;
+    color: var(--text-text);
+    font-weight: 400;
+    margin: 0;
+}
+
+div.day_top p.name {
+    font-size: 1.938rem;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-h1);
+}
+
+.lessons_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.lesson {
+    display: flex;
+    height: 3vh;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1vh 0;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+p.number {
+    margin: 0;
+    font-size: 1.250rem;
+    color: var(--text-text);
+}
+
+.lesson .right {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.time {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input.les_time {
+    height: 100%;
+    background: var(--surface-surface-variant);
+    border-radius: 10px;
+    border: none;
+    width: 35%;
+    text-align: center;
+    color: var(--text-variant);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 3px 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+input.les_time:focus {
+    outline: var(--blue-light) solid 3px;
+    color: var(--blue-light);
+}
+
+p.wall {
+    margin: 0;
+    height: min-content;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--blue-light);
+}
+
+div.remove {
+    display: flex;
+    align-items: center;
+}
+
+img.remove {
+    width: auto;
+    height: 1.4vh;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+    width: 0;
+    display: none;
+}
