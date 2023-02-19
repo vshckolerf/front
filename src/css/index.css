@@ -14,6 +14,15 @@ body {
     margin: 0;
     background: var(--surface-background);
 }
+div.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: var(--surface-background);
+}
 
 #auth {
     height: 53vh;
@@ -86,7 +95,7 @@ body {
     width: 100%;
 }
 
-font {
+span.mimbol {
     color: var(--blue-light);
 }
 
