@@ -1,0 +1,10 @@
+:root {
+    /* Light theme */
+    --text-h1: #333333;
+    --text-text: rgba(60, 60, 67, 0.6);
+    --text-variant: #707079;
+    --surface-surface: #FFFFFF;
+    --surface-surface-variant: #F5F6F8;
+    --surface-surface-stroke: #F5F5F6;
+    --surface-background: #FBFBFB;
+}
