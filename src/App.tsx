@@ -1,5 +1,4 @@
 import {Route, Routes} from 'react-router-dom'
-import React from 'react'
 
 import { IndexPage } from './pages/IndexPage'
 import { SchedulePage } from './pages/SchedulePage'
@@ -16,4 +15,3 @@ function App() {
 }
 
 export default App
-
