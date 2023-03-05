@@ -113,7 +113,7 @@ div.day_top p.name {
 
 p.number {
     margin: 0;
-    font-size: 1.250rem;
+    font-size: 1.25rem;
     color: var(--text-text);
 }
 
@@ -141,7 +141,7 @@ input.les_time {
     font-weight: 600;
     font-size: 1rem;
     padding: 3px 6px;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 input.les_time:focus {
@@ -154,7 +154,7 @@ p.wall {
     height: min-content;
     font-size: 1.6rem;
     font-weight: 700;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     color: var(--blue-light);
 }
 
