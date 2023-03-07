@@ -1,11 +1,17 @@
+import { useJwt } from "react-jwt";
 import logoImg from "../assets/logo.svg";
 import removeImg from "../assets/remove.svg";
 import plusImg from "../assets/remove.svg";
 import "../css/schedule.css";
 
 export function SchedulePage() {
-    let fio: string = "Овденко Н.Б.";
-
+    const fio = "FFF";
+    const { decodedToken, isExpired } = useJwt(
+        localStorage.getItem("jwt") as string
+    );
+    console.log(decodedToken, isExpired);
+    const userInfo = decodedToken;
+    console.log(userInfo);
     return (
         <>
             <div className="nav_wrapper">
@@ -25,7 +31,8 @@ export function SchedulePage() {
                     </nav>
                 </div>
                 <div className="right_nav">
-                    <p className="name">{fio}</p>
+                    <p className="name">{userInfo.fio}</p>
+                    /* 'userInfo' is of type 'unknown'.ts(18046)*/
                     <button id="exit">Выйти</button>
                 </div>
             </div>
