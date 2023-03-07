@@ -34,4 +34,4 @@ jobs:
         remote: /var/www/AgylamFront
         host: ${{ secrets.HOST }}
         username: ${{ secrets.SSH_USER }}
-        privateKey: ${{ secrets.PRIVATEKEY }}
+        password: ${{ secrets.SSH_PASSWORD }}
