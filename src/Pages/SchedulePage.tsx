@@ -4,13 +4,17 @@ import removeImg from "../assets/remove.svg";
 import plusImg from "../assets/remove.svg";
 import "../css/schedule.css";
 
+interface IUser {
+    email: string;
+    fio: string | null;
+}
+
 export function SchedulePage() {
-    const fio = "FFF";
-    const { decodedToken, isExpired } = useJwt(
+    const { decodedToken, isExpired } = useJwt<IUser>(
         localStorage.getItem("jwt") as string
     );
-    console.log(decodedToken, isExpired);
     const userInfo = decodedToken;
+    console.log(decodedToken, isExpired);
     console.log(userInfo);
     return (
         <>
@@ -31,8 +35,7 @@ export function SchedulePage() {
                     </nav>
                 </div>
                 <div className="right_nav">
-                    <p className="name">{userInfo.fio}</p>
-                    /* 'userInfo' is of type 'unknown'.ts(18046)*/
+                    <p className="name">{userInfo?.fio}</p>
                     <button id="exit">Выйти</button>
                 </div>
             </div>
