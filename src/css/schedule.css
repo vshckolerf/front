@@ -168,6 +168,17 @@ img.remove {
     height: 1.4vh;
 }
 
+div.add {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+img.add {
+    width: auto;
+    height: 5vh;
+}
+
 input[type="time"]::-webkit-calendar-picker-indicator {
     background: none;
     width: 0;
