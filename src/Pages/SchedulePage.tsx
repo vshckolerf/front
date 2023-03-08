@@ -2,7 +2,7 @@ import { useJwt } from "react-jwt";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../Interfaces/IUser";
 import removeImg from "../assets/remove.svg";
-import plusImg from "../assets/remove.svg";
+import plusImg from "../assets/plus.svg";
 import "../css/schedule.css";
 import { NavbarComponent } from "../Components/NavbarComponent";
 
@@ -47,12 +47,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -89,12 +87,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -131,12 +127,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -157,12 +151,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -183,12 +175,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -209,12 +199,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -235,12 +223,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -261,12 +247,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -287,12 +271,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -313,12 +295,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -339,12 +319,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -365,12 +343,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -407,12 +383,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -449,12 +423,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -491,12 +463,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -517,12 +487,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -559,12 +527,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -585,12 +551,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -611,12 +575,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -637,12 +599,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -663,12 +623,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -689,12 +647,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -715,12 +671,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -741,12 +695,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -767,12 +719,10 @@ export function SchedulePage() {
                                     />
                                 </div>
                                 <div className="remove">
-                                    <svg>
-                                        <img
-                                            className="add"
-                                            src={removeImg}
-                                        />
-                                    </svg>
+                                    <img
+                                        className="add"
+                                        src={removeImg}
+                                    />
                                 </div>
                             </div>
                         </div>
