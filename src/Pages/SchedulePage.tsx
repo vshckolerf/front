@@ -1,44 +1,26 @@
 import { useJwt } from "react-jwt";
-import logoImg from "../assets/logo.svg";
+import { useNavigate } from "react-router-dom";
+import { IUser } from "../Interfaces/IUser";
 import removeImg from "../assets/remove.svg";
 import plusImg from "../assets/remove.svg";
 import "../css/schedule.css";
-
-interface IUser {
-    email: string;
-    fio: string | null;
-}
+import { NavbarComponent } from "../Components/NavbarComponent";
 
 export function SchedulePage() {
+    const navigate = useNavigate();
     const { decodedToken, isExpired } = useJwt<IUser>(
         localStorage.getItem("jwt") as string
     );
+    if (isExpired) {
+        localStorage.removeItem("jwt");
+        navigate("/schedule");
+    }
     const userInfo = decodedToken;
     console.log(decodedToken, isExpired);
     console.log(userInfo);
     return (
         <>
-            <div className="nav_wrapper">
-                <div className="left_nav">
-                    <img
-                        src={logoImg}
-                        alt=""
-                        id="nav_logo"
-                    />
-                    <nav>
-                        <ul>
-                            <li className="nav_item active">Расписание</li>
-                            <li className="nav_item">Объявления</li>
-                            <li className="nav_item">Пользователи</li>
-                            <li className="nav_item">Файл</li>
-                        </ul>
-                    </nav>
-                </div>
-                <div className="right_nav">
-                    <p className="name">{userInfo?.fio}</p>
-                    <button id="exit">Выйти</button>
-                </div>
-            </div>
+            <NavbarComponent userInfo={userInfo} />
             <div className="days_wrapper">
                 <div
                     className="day"
