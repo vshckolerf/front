@@ -3,9 +3,10 @@ import { IUser } from "../Interfaces/IUser";
 
 interface INavbarParams {
     userInfo: IUser | null;
+    onExit: any;
 }
 
-export function NavbarComponent({ userInfo }: INavbarParams) {
+export function NavbarComponent({ userInfo, onExit }: INavbarParams) {
     return (
         <div className="nav_wrapper">
             <div className="left_nav">
@@ -25,7 +26,11 @@ export function NavbarComponent({ userInfo }: INavbarParams) {
             </div>
             <div className="right_nav">
                 <p className="name">{userInfo?.fio}</p>
-                <button id="exit">Выйти</button>
+                <button
+                    id="exit"
+                    onClick={onExit}>
+                    Выйти
+                </button>
             </div>
         </div>
     );

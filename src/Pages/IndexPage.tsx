@@ -3,15 +3,16 @@ import { API_URL } from "../config";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useJwt } from "react-jwt";
 import logoImg from "../assets/logo.svg";
 import "../css/index.css";
 import "react-toastify/dist/ReactToastify.css";
+import { IUser } from "../Interfaces/IUser";
 
 export function IndexPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-
     const auth = () => {
         fetch(API_URL + "auth/login", {
             method: "post",
@@ -43,7 +44,10 @@ export function IndexPage() {
             }
         });
     };
-
+    const { isExpired } = useJwt<IUser>(localStorage.getItem("jwt") as string);
+    if (!isExpired) {
+        navigate("/schedule");
+    }
     return (
         <div className="wrapper">
             <ToastContainer limit={3} />

@@ -8,19 +8,23 @@ import { NavbarComponent } from "../Components/NavbarComponent";
 
 export function SchedulePage() {
     const navigate = useNavigate();
+    const exit = () => {
+        localStorage.removeItem("jwt");
+        navigate("/");
+    };
     const { decodedToken, isExpired } = useJwt<IUser>(
         localStorage.getItem("jwt") as string
     );
-    if (isExpired) {
-        localStorage.removeItem("jwt");
-        navigate("/schedule");
-    }
+    if (isExpired) exit();
     const userInfo = decodedToken;
     console.log(decodedToken, isExpired);
     console.log(userInfo);
     return (
         <>
-            <NavbarComponent userInfo={userInfo} />
+            <NavbarComponent
+                userInfo={userInfo}
+                onExit={exit}
+            />
             <div className="days_wrapper">
                 <div
                     className="day"
@@ -48,7 +52,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -58,7 +62,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
@@ -88,7 +92,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -98,7 +102,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
@@ -128,7 +132,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -152,7 +156,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -176,7 +180,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -200,7 +204,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -224,7 +228,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -248,7 +252,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -272,7 +276,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -296,7 +300,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -320,7 +324,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -344,7 +348,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -354,7 +358,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
@@ -384,7 +388,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -394,7 +398,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
@@ -424,7 +428,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -434,7 +438,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
@@ -464,7 +468,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -488,7 +492,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -498,7 +502,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
@@ -528,7 +532,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -552,7 +556,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -576,7 +580,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -600,7 +604,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -624,7 +628,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -648,7 +652,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -672,7 +676,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -696,7 +700,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -720,7 +724,7 @@ export function SchedulePage() {
                                 </div>
                                 <div className="remove">
                                     <img
-                                        className="add"
+                                        className="remove"
                                         src={removeImg}
                                     />
                                 </div>
@@ -730,7 +734,7 @@ export function SchedulePage() {
                     <div className="add">
                         <img
                             src={plusImg}
-                            className="remove"
+                            className="add"
                         />
                     </div>
                 </div>
