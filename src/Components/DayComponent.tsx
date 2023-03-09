@@ -1,5 +1,5 @@
-import removeImg from "../assets/remove.svg";
 import plusImg from "../assets/plus.svg";
+import { LessonComponent } from "./LessonComponent";
 interface IDayParams {
     dow: string;
 }
@@ -13,30 +13,13 @@ export function DayComponent({ dow }: IDayParams) {
                 <p className="name">{dow}</p>
             </div>
             <div className="lessons_wrapper">
-                <div className="lesson">
-                    <div className="left">
-                        <p className="number">1-й</p>
-                    </div>
-                    <div className="right">
-                        <div className="time">
-                            <input
-                                type="time"
-                                className="les_time"
-                            />
-                            <p className="wall">:</p>
-                            <input
-                                type="time"
-                                className="les_time"
-                            />
-                        </div>
-                        <div className="remove">
-                            <img
-                                className="remove"
-                                src={removeImg}
-                            />
-                        </div>
-                    </div>
-                </div>
+                <LessonComponent
+                    startHour="00"
+                    startMinute="00"
+                    endHour="00"
+                    endMinute="00"
+                    order={1}
+                />
             </div>
             <div className="add">
                 <img

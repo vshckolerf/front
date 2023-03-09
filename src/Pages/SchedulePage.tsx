@@ -18,8 +18,6 @@ export function SchedulePage() {
     );
     if (isExpired) exit();
     const userInfo = decodedToken;
-    console.log(decodedToken, isExpired);
-    console.log(userInfo);
     return (
         <>
             <NavbarComponent
