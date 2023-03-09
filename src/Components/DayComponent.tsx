@@ -1,16 +1,25 @@
 import plusImg from "../assets/plus.svg";
 import { LessonComponent } from "./LessonComponent";
 interface IDayParams {
-    dow: string;
+    dow: number;
 }
 export function DayComponent({ dow }: IDayParams) {
+    const weekDays = [
+        "Понедельник",
+        "Вторник",
+        "Среда",
+        "Четверг",
+        "Пятница",
+        "Суббота",
+        "Воскресенье",
+    ];
     return (
         <div
             className="day"
             id="first-day">
             <div className="day_top">
                 <p className="static">Расписание</p>
-                <p className="name">{dow}</p>
+                <p className="name">{weekDays[dow]}</p>
             </div>
             <div className="lessons_wrapper">
                 <LessonComponent

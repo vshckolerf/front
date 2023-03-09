@@ -25,13 +25,13 @@ export function SchedulePage() {
                 onExit={exit}
             />
             <div className="days_wrapper">
-                <DayComponent dow="Понедельник" />
-                <DayComponent dow="Вторник" />
-                <DayComponent dow="Среда" />
-                <DayComponent dow="Четверг" />
-                <DayComponent dow="Пятница" />
-                <DayComponent dow="Суббота" />
-                <DayComponent dow="Воскресенье" />
+                <DayComponent dow={0} />
+                <DayComponent dow={1} />
+                <DayComponent dow={2} />
+                <DayComponent dow={3} />
+                <DayComponent dow={4} />
+                <DayComponent dow={5} />
+                <DayComponent dow={6} />
             </div>
         </>
     );
