@@ -5,8 +5,8 @@
  */
 
 import { Route, Routes } from "react-router-dom";
-import { IndexPage } from "./Pages/IndexPage";
-import { SchedulePage } from "./Pages/SchedulePage";
+import { IndexPage } from "./pages/IndexPage";
+import { SchedulePage } from "./pages/SchedulePage";
 
 import "./css/main.css";
 import "./css/color-light.css";

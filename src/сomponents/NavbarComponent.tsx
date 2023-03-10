@@ -1,5 +1,5 @@
 import logoImg from "../assets/logo.svg";
-import { IUser } from "../Interfaces/IUser";
+import { IUser } from "../interfaces/IUser";
 
 interface INavbarParams {
     userInfo: IUser | null;
@@ -25,7 +25,7 @@ export function NavbarComponent({ userInfo, onExit }: INavbarParams) {
                 </nav>
             </div>
             <div className="right_nav">
-                <p className="name">{userInfo?.fio}</p>
+                <p className="name">{userInfo?.fullName}</p>
                 <button
                     id="exit"
                     onClick={onExit}>
