@@ -17,6 +17,7 @@
     "jsx": "react-jsx",
     "removeComments": true
   },
+  "types": ["vite/client"],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

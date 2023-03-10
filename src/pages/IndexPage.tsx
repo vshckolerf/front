@@ -1,5 +1,4 @@
 import { ThemeSwitcherComponent } from "../сomponents/ThemeSwitcherComponent";
-import { API_URL } from "../config";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +13,7 @@ export function IndexPage() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const auth = () => {
-        fetch(API_URL + "auth/login", {
+        fetch(import.meta.env.VITE_API_URL+`auth/login`, {
             method: "post",
             headers: {
                 Accept: "application/json",
