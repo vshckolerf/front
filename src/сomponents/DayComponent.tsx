@@ -3,16 +3,17 @@ import { LessonComponent } from "./LessonComponent";
 interface IDayParams {
     dow: number;
 }
+
+const weekDays = [
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
+];
 export function DayComponent({ dow }: IDayParams) {
-    const weekDays = [
-        "Понедельник",
-        "Вторник",
-        "Среда",
-        "Четверг",
-        "Пятница",
-        "Суббота",
-        "Воскресенье",
-    ];
     return (
         <div
             className="day"
@@ -23,7 +24,7 @@ export function DayComponent({ dow }: IDayParams) {
             </div>
             <div className="lessons_wrapper">
                 <LessonComponent
-                    startHour="00"
+                    startHour="10"
                     startMinute="00"
                     endHour="00"
                     endMinute="00"
@@ -34,6 +35,7 @@ export function DayComponent({ dow }: IDayParams) {
                 <img
                     src={plusImg}
                     className="add"
+                    alt="img"
                 />
             </div>
         </div>

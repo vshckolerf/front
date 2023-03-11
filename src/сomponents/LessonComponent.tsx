@@ -31,14 +31,15 @@ export function LessonComponent(params: ILessonParams) {
                     <input
                         type="time"
                         className="les_time"
-                        value={startTime}
-                        onChange={(event) => setStartTime(event.target.value)}
+                        value={endTime}
+                        onChange={(event) => setEndTime(event.target.value)}
                     />
                 </div>
                 <div className="remove">
                     <img
                         className="remove"
-                        src={removeImg}
+                        src={removeImg
+                            alt="img"
                     />
                 </div>
             </div>
