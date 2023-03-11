@@ -15,6 +15,7 @@ export function IndexPage() {
     const auth = () => {
         fetch(import.meta.env.VITE_API_URL+`auth/login`, {
             method: "post",
+            mode: "no-cors",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
