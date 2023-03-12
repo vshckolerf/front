@@ -38,8 +38,8 @@ export function LessonComponent(params: ILessonParams) {
                 <div className="remove">
                     <img
                         className="remove"
-                        src={removeImg
-                            alt="img"
+                        src={removeImg}
+                        alt="img"
                     />
                 </div>
             </div>
