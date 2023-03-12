@@ -1,12 +1,6 @@
 import { useState } from "react";
 import removeImg from "../assets/remove.svg";
-interface ILessonParams {
-    startHour: string;
-    startMinute: string;
-    endHour: string;
-    endMinute: string;
-    order: number;
-}
+import {ILessonParams} from "../interfaces/ILessonParams";
 export function LessonComponent(params: ILessonParams) {
     const [startTime, setStartTime] = useState(
         params.startHour + ":" + params.startMinute
@@ -14,6 +8,14 @@ export function LessonComponent(params: ILessonParams) {
     const [endTime, setEndTime] = useState(
         params.endHour + ":" + params.endMinute
     );
+    const changeStartTime = (value : string) =>{
+        params.onChangeStartTime(value);
+        setStartTime(value)
+    };
+    const changeEndTime = (value : string) =>{
+        params.onChangeEndTime(value);
+        setStartTime(value)
+    };
     return (
         <div className="lesson">
             <div className="left">
@@ -25,14 +27,14 @@ export function LessonComponent(params: ILessonParams) {
                         type="time"
                         className="les_time"
                         value={startTime}
-                        onChange={(event) => setStartTime(event.target.value)}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeStartTime(event.target.value)}
                     />
                     <p className="wall">:</p>
                     <input
                         type="time"
                         className="les_time"
                         value={endTime}
-                        onChange={(event) => setEndTime(event.target.value)}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeEndTime(event.target.value)}
                     />
                 </div>
                 <div className="remove">
