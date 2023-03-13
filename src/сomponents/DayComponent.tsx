@@ -36,6 +36,7 @@ export function DayComponent({ dow }: IDayParams) {
             console.log(prevState);
             return prevState.map((v,k)=>{
                 if(k == order){
+                    console.log(type);
                     if(type){
                         return {...v,end:time}
                     }else {
