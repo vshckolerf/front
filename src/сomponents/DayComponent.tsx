@@ -1,5 +1,4 @@
 import plusImg from "../assets/plus.svg";
-import {ILesson} from "../interfaces/ILesson";
 import React, {useState} from "react";
 import removeImg from "../assets/remove.svg";
 interface IDayParams {
@@ -30,14 +29,20 @@ export function DayComponent({ dow }: IDayParams) {
         }
     ]);
     const changeTime = (order:number,type:boolean,time:string)=>{
-        let temp = lessons;
-        if(type){
-            temp[order].end = time;
-        }else{
-            temp[order].start = time;
-        }
-        setLessons((prevState) => {
-
+        // let temp = lessons;
+        // if(type){
+        //     temp[order].end = time;
+        // }else{
+        //     temp[order].start = time;
+        // }
+        setLessons((prevState: ILesson[] | null) => {
+            if(prevState == null) return [];
+            if(type){
+                prevState[order].end = time;
+            }else{
+                prevState[order].start = time;
+            }
+            return prevState;
         });
         console.log(order,type,time)
     };
@@ -52,7 +57,7 @@ export function DayComponent({ dow }: IDayParams) {
                 <p className="name">{weekDays[dow]}</p>
             </div>
             <div className="lessons_wrapper">
-                {lessons.map((obj: ILesson,key)=>{
+                {lessons?.map((obj: ILesson,key)=>{
                     return(<div className="lesson" key={key}>
                         <div className="left">
                             <p className="number">{key+1}-й</p>
