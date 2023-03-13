@@ -29,22 +29,24 @@ export function DayComponent({ dow }: IDayParams) {
         }
     ]);
     const changeTime = (order:number,type:boolean,time:string)=>{
-        // let temp = lessons;
-        // if(type){
-        //     temp[order].end = time;
-        // }else{
-        //     temp[order].start = time;
-        // }
+        console.log(order,type,time,lessons);
+        console.log(lessons);
         setLessons((prevState: ILesson[] | null) => {
             if(prevState == null) return [];
-            if(type){
-                prevState[order].end = time;
-            }else{
-                prevState[order].start = time;
-            }
-            return prevState;
+            console.log(prevState);
+            return prevState.map((v,k)=>{
+                if(k == order){
+                    if(type){
+                        return {...v,end:time}
+                    }else {
+                        return {...v,start:time}
+                    }
+                }else{
+                    return v;
+                }
+            });
         });
-        console.log(order,type,time)
+        console.log(lessons);
     };
     const addLesson = ()=>{
     }
