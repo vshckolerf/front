@@ -1,12 +1,13 @@
 import plusImg from "../assets/plus.svg";
-import { LessonComponent } from "./LessonComponent";
-import {ILesson} from "../interfaces/ILesson";
-import {ILessonParams} from "../interfaces/ILessonParams";
-import React from "react";
+import React, {useState} from "react";
+import removeImg from "../assets/remove.svg";
 interface IDayParams {
     dow: number;
 }
-
+interface ILesson {
+    start: string;
+    end: string;
+}
 const weekDays = [
     "Понедельник",
     "Вторник",
@@ -17,29 +18,39 @@ const weekDays = [
     "Воскресенье",
 ];
 export function DayComponent({ dow }: IDayParams) {
-    const lessons : ILesson[] = [
+    const [lessons,setLessons] =  useState<ILesson[]|null>([
         {
-            startHour: "10",
-            startMinute:"00",
-            endHour:"00",
-            endMinute:"00"
+            start: "10:00",
+            end:"11:00",
         },
         {
-            startHour: "10",
-            startMinute:"02",
-            endHour:"00",
-            endMinute:"00"
+            start: "12:10",
+            end:"12:30",
         }
-    ]
+    ]);
     const changeTime = (order:number,type:boolean,time:string)=>{
-        console.log(order,type,time)
+        console.log(order,type,time,lessons);
+        console.log(lessons);
+        setLessons((prevState: ILesson[] | null) => {
+            if(prevState == null) return [];
+            console.log(prevState);
+            return prevState.map((v,k)=>{
+                if(k == order){
+                    console.log(type);
+                    if(type){
+                        return {...v,end:time}
+                    }else {
+                        return {...v,start:time}
+                    }
+                }else{
+                    return v;
+                }
+            });
+        });
+        console.log(lessons);
     };
-    const lessonsComponents = lessons.map((obj: ILesson,key)=>{
-        (obj as ILessonParams).onChangeStartTime = (time:string)=>{changeTime(key+1,false,time);}
-        (obj as ILessonParams).onChangeEndTime = (time:string)=>{changeTime(key+1,true,time);};
-        (obj as ILessonParams).order = key+1;
-        return(LessonComponent(obj as ILessonParams))
-    });
+    const addLesson = ()=>{
+    }
     return (
         <div
             className="day"
@@ -49,13 +60,44 @@ export function DayComponent({ dow }: IDayParams) {
                 <p className="name">{weekDays[dow]}</p>
             </div>
             <div className="lessons_wrapper">
-                {lessonsComponents}
+                {lessons?.map((obj: ILesson,key)=>{
+                    return(<div className="lesson" key={key}>
+                        <div className="left">
+                            <p className="number">{key+1}-й</p>
+                        </div>
+                        <div className="right">
+                            <div className="time">
+                                <input
+                                    type="time"
+                                    className="les_time"
+                                    value={lessons[key].start}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeTime(key,false,event.target.value)}
+                                />
+                                <p className="wall">:</p>
+                                <input
+                                    type="time"
+                                    className="les_time"
+                                    value={lessons[key].end}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeTime(key,true,event.target.value)}
+                                />
+                            </div>
+                            <div className="remove">
+                                <img
+                                    className="remove"
+                                    src={removeImg}
+                                    alt="img"
+                                />
+                            </div>
+                        </div>
+                    </div>)
+                })}
             </div>
             <div className="add">
                 <img
                     src={plusImg}
                     className="add"
                     alt="img"
+                    onClick={()=>{console.log("ss");}}
                 />
             </div>
         </div>
