@@ -29,14 +29,10 @@ export function DayComponent({ dow }: IDayParams) {
         }
     ]);
     const changeTime = (order:number,type:boolean,time:string)=>{
-        console.log(order,type,time,lessons);
-        console.log(lessons);
         setLessons((prevState: ILesson[] | null) => {
             if(prevState == null) return [];
-            console.log(prevState);
             return prevState.map((v,k)=>{
                 if(k == order){
-                    console.log(type);
                     if(type){
                         return {...v,end:time}
                     }else {
@@ -50,7 +46,25 @@ export function DayComponent({ dow }: IDayParams) {
         console.log(lessons);
     };
     const addLesson = ()=>{
-    }
+        setLessons((prevState: ILesson[] | null) => {
+            if(prevState == null) return [{
+                start: "10:00",
+                end:"11:00",
+            }];
+            return [...prevState,{
+                start: "10:00",
+                end:"11:00",
+            }];
+        });
+        console.log(lessons);
+    };
+    const removeLesson = (order:number)=>{
+        setLessons((prevState: ILesson[] | null) => {
+            if(prevState == null) return [];
+            return prevState.filter((value, index) => index !== order);
+        });
+        console.log(lessons);
+    };
     return (
         <div
             className="day"
@@ -86,6 +100,7 @@ export function DayComponent({ dow }: IDayParams) {
                                     className="remove"
                                     src={removeImg}
                                     alt="img"
+                                    onClick={()=>{removeLesson(key);}}
                                 />
                             </div>
                         </div>
@@ -97,7 +112,7 @@ export function DayComponent({ dow }: IDayParams) {
                     src={plusImg}
                     className="add"
                     alt="img"
-                    onClick={()=>{console.log("ss");}}
+                    onClick={addLesson}
                 />
             </div>
         </div>
