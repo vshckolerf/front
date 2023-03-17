@@ -2,7 +2,7 @@ import plusImg from "../assets/plus.svg";
 import React, {useEffect, useRef, useState} from "react";
 import removeImg from "../assets/remove.svg";
 import {dayFetch} from "../fetches/dayFetch";
-import { setDay } from "../fetches/setDay";
+import { setDayFetch } from "../fetches/setDayFetch";
 interface IDayParams {
     dow: number;
 }
@@ -30,20 +30,14 @@ export function DayComponent({ dow }: IDayParams) {
                 console.log("err" + dow, resp);
             });
     }, []);
-    useEffect(() => {
-        console.log("Сработка useEffect dow:" + dow)
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-        } else {
-            setDay(dow,lessons, localStorage.getItem("jwt") as string)
-                .then((resp:string) => {
-                    console.log("sus" + dow, resp);
-                }, (resp:string) => {
-                    console.log("err" + dow, resp);
-                });
-        }
-
-    }, [lessons]);
+    const pushToBack = ()=>{
+        setDayFetch(dow,lessons, localStorage.getItem("jwt") as string)
+            .then((resp:string) => {
+                console.log("sus" + dow, resp);
+            }, (resp:string) => {
+                console.log("err" + dow, resp);
+            });
+    }
     const changeTime = (order: number, type: boolean, time: string) => {
         setLessons((prevState: ILesson[] | null) => {
             if (prevState == null) return [];
@@ -59,6 +53,7 @@ export function DayComponent({ dow }: IDayParams) {
                 }
             });
         });
+        pushToBack();
         console.log(lessons);
     };
     const addLesson = ()=>{
@@ -72,6 +67,7 @@ export function DayComponent({ dow }: IDayParams) {
                 end:"11:00",
             }];
         });
+        pushToBack();
         console.log(lessons);
     };
     const removeLesson = (order:number)=>{
@@ -79,6 +75,7 @@ export function DayComponent({ dow }: IDayParams) {
             if(prevState == null) return [];
             return prevState.filter((value, index) => index !== order);
         });
+        pushToBack();
         console.log(lessons);
     };
     return (
