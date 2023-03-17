@@ -1,6 +1,17 @@
 body {
     margin: 0;
     background-color: var(--surface-background);
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar:vertical{
+    height: 8px;
+    background-color: red;
+}
+::-webkit-scrollbar-thumb:vertical{
+    background: #000;
+    border-radius: 10px;
+
 }
 
 .nav_wrapper {
@@ -61,10 +72,11 @@ body {
 .days_wrapper {
     display: flex;
     padding-top: 20vh;
+    height: 100%;
 }
 
 div.day {
-    height: 100%;
+    height: min-content;
     width: 20vw;
     margin: 0 1vw;
     border: 2px solid var(--surface-surface-stroke);
@@ -184,3 +196,4 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 0;
     display: none;
 }
+
