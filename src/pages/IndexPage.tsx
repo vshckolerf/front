@@ -6,50 +6,39 @@ import { useJwt } from "react-jwt";
 import logoImg from "../assets/logo.svg";
 import "../css/index.css";
 import "react-toastify/dist/ReactToastify.css";
-import { IUser } from "../interfaces/IUser";
+import {IUser} from "../interfaces/IUser";
+import {authFetch} from "../fetches/authFetch";
 
 export function IndexPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const auth = () => {
-        fetch(import.meta.env.VITE_API_URL+`auth/login`, {
-            method: "post",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password,
-            }),
-        }).then((resp: Response) => {
-            if (resp.ok) {
-                resp.json().then((respObj) => {
-                    localStorage.setItem("jwt", respObj.token);
-                    toast.success("Успешно!", {
-                        position: toast.POSITION.BOTTOM_LEFT,
-                        autoClose: 1000,
-                        onClose: () => {
-                            navigate("/schedule");
-                        },
-                    });
+        return authFetch(email, password)
+            .then((token: string) => {
+                localStorage.setItem("jwt", token);
+                toast.success("Успешно!", {
+                    position: toast.POSITION.BOTTOM_LEFT,
+                    autoClose: 1000,
+                    onClose: () => {
+                        navigate("/schedule");
+                    },
                 });
-            } else {
+            }, (resp) => {
                 toast.error("Неверные почта или пароль!", {
                     position: toast.POSITION.BOTTOM_LEFT,
                     autoClose: 2000,
                 });
-            }
-        });
-    };
-    const { isExpired } = useJwt<IUser>(localStorage.getItem("jwt") as string);
+            });
+    }
+
+    const {isExpired} = useJwt<IUser>(localStorage.getItem("jwt") as string);
     if (!isExpired) {
         navigate("/schedule");
     }
     return (
         <div className="wrapper">
-            <ToastContainer limit={3} />
+            <ToastContainer limit={3}/>
             <div id="auth">
                 <img
                     src={logoImg}

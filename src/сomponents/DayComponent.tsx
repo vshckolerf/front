@@ -1,6 +1,7 @@
 import plusImg from "../assets/plus.svg";
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import removeImg from "../assets/remove.svg";
+import {dayFetch} from "../fetches/dayFetch";
 interface IDayParams {
     dow: number;
 }
@@ -18,25 +19,39 @@ const weekDays = [
     "Воскресенье",
 ];
 export function DayComponent({ dow }: IDayParams) {
-    const [lessons,setLessons] =  useState<ILesson[]|null>([
+    const [lessons, setLessons] = useState<ILesson[] | null>([
         {
             start: "10:00",
-            end:"11:00",
+            end: "11:00",
         },
         {
             start: "12:10",
-            end:"12:30",
+            end: "12:30",
         }
     ]);
-    const changeTime = (order:number,type:boolean,time:string)=>{
+    console.log("Запуск элемента Day dof:" + dow)
+    useEffect(() => {
+        console.log("Сработка useEffect dow:" + dow)
+        dayFetch(dow, localStorage.getItem("jwt") as string)
+            .then((lessons: ILesson[]) => {
+                console.log("sus" + dow, lessons);
+            }, (resp) => {
+                console.log("err" + dow, lessons);
+            });
+        // код подписки на ресурс
+        return (() => {
+            // код отписки от ресурса
+        });
+    }, [])
+    const changeTime = (order: number, type: boolean, time: string) => {
         setLessons((prevState: ILesson[] | null) => {
-            if(prevState == null) return [];
-            return prevState.map((v,k)=>{
-                if(k == order){
-                    if(type){
-                        return {...v,end:time}
-                    }else {
-                        return {...v,start:time}
+            if (prevState == null) return [];
+            return prevState.map((v, k) => {
+                if (k == order) {
+                    if (type) {
+                        return {...v, end: time}
+                    } else {
+                        return {...v, start: time}
                     }
                 }else{
                     return v;
