@@ -4,16 +4,6 @@ body {
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar:vertical{
-    height: 8px;
-    background-color: red;
-}
-::-webkit-scrollbar-thumb:vertical{
-    background: #000;
-    border-radius: 10px;
-
-}
-
 .nav_wrapper {
     display: flex;
     flex-direction: row;

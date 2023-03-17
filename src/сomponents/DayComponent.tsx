@@ -2,6 +2,7 @@ import plusImg from "../assets/plus.svg";
 import React, {useEffect, useRef, useState} from "react";
 import removeImg from "../assets/remove.svg";
 import {dayFetch} from "../fetches/dayFetch";
+import { setDay } from "../fetches/setDay";
 interface IDayParams {
     dow: number;
 }
@@ -19,30 +20,30 @@ const weekDays = [
     "Воскресенье",
 ];
 export function DayComponent({ dow }: IDayParams) {
-    const [lessons, setLessons] = useState<ILesson[] | null>([
-        {
-            start: "10:00",
-            end: "11:00",
-        },
-        {
-            start: "12:10",
-            end: "12:30",
-        }
-    ]);
-    console.log("Запуск элемента Day dof:" + dow)
+    const [lessons, setLessons] = useState<ILesson[] | null>([]);
+    const isInitialMount = useRef(true);
+    useEffect(() => {
+        dayFetch(dow)
+            .then((lessons: ILesson[]) => {
+                setLessons(lessons);
+            }, (resp) => {
+                console.log("err" + dow, resp);
+            });
+    }, []);
     useEffect(() => {
         console.log("Сработка useEffect dow:" + dow)
-        dayFetch(dow, localStorage.getItem("jwt") as string)
-            .then((lessons: ILesson[]) => {
-                console.log("sus" + dow, lessons);
-            }, (resp) => {
-                console.log("err" + dow, lessons);
-            });
-        // код подписки на ресурс
-        return (() => {
-            // код отписки от ресурса
-        });
-    }, [])
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+        } else {
+            setDay(dow,lessons, localStorage.getItem("jwt") as string)
+                .then((resp:string) => {
+                    console.log("sus" + dow, resp);
+                }, (resp:string) => {
+                    console.log("err" + dow, resp);
+                });
+        }
+
+    }, [lessons]);
     const changeTime = (order: number, type: boolean, time: string) => {
         setLessons((prevState: ILesson[] | null) => {
             if (prevState == null) return [];

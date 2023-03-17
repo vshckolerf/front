@@ -3,14 +3,13 @@ interface ILesson {
     end: string;
 }
 
-export function dayFetch(order: number, token: string) {
+export function dayFetch(order: number) {
     return new Promise<ILesson[]>((resolve, reject) => {
         fetch(import.meta.env.VITE_API_URL + `schedule/${order}`, {
             method: "get",
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Content-Type": "application/json"
             }
         }).then((resp: Response) => {
             if (resp.ok) {
