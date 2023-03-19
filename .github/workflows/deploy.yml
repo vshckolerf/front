@@ -27,5 +27,5 @@ jobs:
         local: dist
         remote: /var/www/AgylamFront
         host: ${{ secrets.HOST }}
-        username: ${{ secrets.SSH_USER }}
+        username: ${{ secrets.SSH_PUSER }}
         password: ${{ secrets.SSH_PASSWORD }}
