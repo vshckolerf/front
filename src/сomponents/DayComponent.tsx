@@ -1,15 +1,15 @@
 import plusImg from "../assets/plus.svg";
-import React, {useEffect,  useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import removeImg from "../assets/remove.svg";
 import {dayFetch} from "../fetches/dayFetch";
-import { setDayFetch } from "../fetches/setDayFetch";
-import "../css/DayComponent.css"
+import {setDayFetch} from "../fetches/setDayFetch";
+import "../css/DayComponent.css";
 interface IDayParams {
-    dow: number;
+  dow: number;
 }
 interface ILesson {
-    start: string;
-    end: string;
+  start: string;
+  end: string;
 }
 const weekDays = [
   "Понедельник",
@@ -22,65 +22,70 @@ const weekDays = [
 ];
 export function DayComponent({ dow }: IDayParams) {
   const [lessons, setLessons] = useState<ILesson[] | null>([]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     dayFetch(dow)
-      .then((lessons: ILesson[]) => {
-        setLessons(lessons);
-      }, (resp) => {
-        console.log("err" + dow, resp);
-      });
+        .then((lessons: ILesson[]) => {
+          setLessons(lessons);
+        }, (resp) => {
+          console.log("err" + dow, resp);
+        });
   }, []);
-  const pushToBack = ()=>{
-    setDayFetch(dow,lessons, localStorage.getItem("jwt") as string)
-      .then((resp:string) => {
-        console.log("sus" + dow, resp);
-      }, (resp:string) => {
-        console.log("err" + dow, resp);
-      });
+  const pushToBack = async (less: ILesson[]) => {
+    setDayFetch(dow, less, localStorage.getItem("jwt") as string)
+        .then((resp: string) => {
+          console.log("sus" + dow, resp);
+        }, (resp: string) => {
+          console.log("err" + dow, resp);
+        });
   }
-  const changeTime = (order: number, type: boolean, time: string) => {
-    setLessons((prevState: ILesson[] | null) => {
+  //useEffect(pushToBack, [lessons]);
+
+  const changeTime = async (order: number, type: boolean, time: string) => {
+    await setLessons((prevState: ILesson[] | null) => {
       if (prevState == null) return [];
-      return prevState.map((v, k) => {
+      const ret = prevState.map((v, k) => {
         if (k == order) {
           if (type) {
             return {...v, end: time}
           } else {
             return {...v, start: time}
           }
-        }else{
+        } else {
           return v;
         }
       });
+      pushToBack(ret);
+      return ret;
     });
-    pushToBack();
     console.log(lessons);
   };
-  const addLesson = ()=>{
-    setLessons((prevState: ILesson[] | null) => {
-      if(prevState == null) return [{
+  const addLesson = async () => {
+    await setLessons((prevState: ILesson[] | null) => {
+      if (prevState == null) return [{
         start: "10:00",
-        end:"11:00",
+        end: "11:00",
       }];
-      return [...prevState,{
+      const ret = [...prevState, {
         start: "10:00",
-        end:"11:00",
+        end: "11:00",
       }];
+      pushToBack(ret);
+      return ret;
     });
-    pushToBack();
     console.log(lessons);
   };
-  const removeLesson = (order:number)=>{
-    setLessons((prevState: ILesson[] | null) => {
-      if(prevState == null) return [];
-      return prevState.filter((value, index) => index !== order);
+  const removeLesson = async (order: number) => {
+    await setLessons((prevState: ILesson[] | null) => {
+      if (prevState == null) return [];
+      const ret = prevState.filter((value, index) => index !== order);
+      pushToBack(ret);
+      return ret;
     });
-    pushToBack();
     console.log(lessons);
   };
   return (
-    <div
-      className="day"
+      <div
+          className="day"
       id="first-day">
       <div className="day_top">
         <p className="static">Расписание</p>
