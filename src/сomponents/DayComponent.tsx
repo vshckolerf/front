@@ -4,6 +4,7 @@ import removeImg from "../assets/remove.svg";
 import {dayFetch} from "../fetches/dayFetch";
 import {setDayFetch} from "../fetches/setDayFetch";
 import "../css/DayComponent.css";
+
 interface IDayParams {
   dow: number;
 }
@@ -86,16 +87,16 @@ export function DayComponent({ dow }: IDayParams) {
   return (
       <div
           className="day"
-      id="first-day">
-      <div className="day_top">
-        <p className="static">Расписание</p>
-        <p className="name">{weekDays[dow]}</p>
-      </div>
-      <div className="lessons_wrapper">
-        {lessons?.map((obj: ILesson,key)=>{
-          return(<div className="lesson" key={key}>
-            <div className="left">
-              <p className="number">{key+1}-й</p>
+          id="first-day">
+        <div className="day_top">
+          <p className="static">Расписание</p>
+          <p className="name">{weekDays[dow]}</p>
+        </div>
+        <div className="lessons_wrapper">
+          {lessons?.map((obj: ILesson, key) => {
+            return (<div className="lesson" key={key}>
+              <div className="left">
+                <p className="number">{key + 1}-й</p>
             </div>
             <div className="right">
               <div className="time">
