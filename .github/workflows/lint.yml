@@ -18,6 +18,6 @@ jobs:
       - uses: sibiraj-s/action-eslint@v2
         with:
           github-token: ${{ secrets.TOKEN }}
-          eslint-args: '"src/**/*.{js,jsx,ts,tsx}" --quiet'
+          eslint-args: '--quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
