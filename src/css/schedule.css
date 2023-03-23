@@ -71,13 +71,13 @@ div.day {
     margin: 0 1vw;
     border: 2px solid var(--surface-surface-stroke);
     border-radius: 30px;
-    padding: 3.2vh 1.6vw;
+    padding: 3.2vh 2.6vw;
     min-width: 300px;
     background: var(--surface-surface);
 }
 
 div.day:first-child {
-    margin-left: 35px;
+    margin-left: 3.1875rem;
 }
 
 p.static {
@@ -87,11 +87,16 @@ p.static {
     margin: 0;
 }
 
+div.day_top {
+    padding-top: 2vh;
+}
+
 div.day_top p.name {
     font-size: 1.938rem;
     display: flex;
     justify-content: space-between;
     color: var(--text-h1);
+    margin: 2vh 0 5vh;
 }
 
 .lessons_wrapper {
@@ -102,10 +107,10 @@ div.day_top p.name {
 
 .lesson {
     display: flex;
-    height: 3vh;
+    height: 4vh;
     justify-content: space-between;
     width: 100%;
-    margin: 1vh 0;
+    margin: 2vh 0;
 }
 
 .left {

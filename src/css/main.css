@@ -21,3 +21,9 @@ div#swal2-html-container {
     width: 100vw;
     height: 100vh;
 }
+
+@media (max-height: 1000px) {
+    .days_wrapper {
+        padding-top: 30vh;
+    }
+}
