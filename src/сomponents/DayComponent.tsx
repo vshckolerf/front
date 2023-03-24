@@ -1,10 +1,10 @@
-import plusImg from "../assets/plus.svg";
 import React, {useLayoutEffect, useState} from "react";
+import plusImg from "../assets/plus.svg";
+import "../css/DayComponent.css";
 import {dayFetch} from "../fetches/dayFetch";
 import {setDayFetch} from "../fetches/setDayFetch";
-import "../css/DayComponent.css";
-import {LessonComponent} from "./LessonComponent";
 import {ILesson} from "../interfaces/ILesson";
+import {LessonComponent} from "./LessonComponent";
 
 
 interface IDayParams {
@@ -26,19 +26,12 @@ export function DayComponent({dow}: IDayParams) {
     const [lessons, setLessons] = useState<ILesson[] | null>([]);
     useLayoutEffect(() => {
         dayFetch(dow)
-            .then((lessons: ILesson[]) => {
-                setLessons(lessons);
-            }, (resp) => {
-                console.log("err" + dow, resp);
-            });
+            .then((lessons: ILesson[]) => setLessons(lessons), console.error);
     }, []);
     const pushToBack = async (less: ILesson[]) => {
         setDayFetch(dow, less, localStorage.getItem("jwt") as string)
-            .then((resp: string) => {
-                console.log("sus" + dow, resp);
-            }, (resp: string) => {
-                console.log("err" + dow, resp);
-            });
+            .then(console.log,console.error);
+        return less;
     }
     //useEffect(pushToBack, [lessons]);
     const timeManage = {
@@ -59,22 +52,15 @@ export function DayComponent({dow}: IDayParams) {
                 pushToBack(ret);
                 return ret;
             });
-            console.log(lessons);
-        },
         add: async () => {
             await setLessons((prevState: ILesson[] | null) => {
-                if (prevState == null) return [{
-                    start: "10:00",
-                    end: "11:00",
-                }];
-                const ret = [...prevState, {
+                const ret = [...(prevState || []), {
                     start: "10:00",
                     end: "11:00",
                 }];
                 pushToBack(ret);
                 return ret;
             });
-            console.log(lessons);
         },
         remove: async (order: number) => {
             await setLessons((prevState: ILesson[] | null) => {
@@ -83,7 +69,6 @@ export function DayComponent({dow}: IDayParams) {
                 pushToBack(ret);
                 return ret;
             });
-            console.log(lessons);
         }
     }
 
