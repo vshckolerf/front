@@ -24,7 +24,9 @@ export function LessonComponent({index, lesson, timeManage}: LessonComponentPara
                 }} timeRange={lesson}/>
                 <div className="remove">
                     <button
-                        onClick={() => timeManage.remove(index)}
+                        onClick={() => {
+                            timeManage.remove(index);
+                        }}
                     >
                         <img
                             className="remove"
