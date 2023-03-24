@@ -26,18 +26,18 @@ export function DayComponent({dow}: IDayParams) {
   useLayoutEffect(() => {
     dayFetch(dow)
         .then((lessons: ILesson[]) => {
-          setLessons(lessons);
+            setLessons(lessons);
         }, (resp) => {
-          console.log("err" + dow, resp);
+            console.log("err" + dow, resp);
         });
   }, []);
   const pushToBack = async (less: ILesson[]) => {
-    setDayFetch(dow, less, localStorage.getItem("jwt") as string)
-        .then((resp: string) => {
-          console.log("sus" + dow, resp);
-        }, (resp: string) => {
-          console.log("err" + dow, resp);
-        });
+      setDayFetch(dow, less, localStorage.getItem("jwt") as string)
+          .then((resp: string) => {
+              console.log("sus" + dow, resp);
+          }, (resp: string) => {
+              console.log("err" + dow, resp);
+          });
   }
   //useEffect(pushToBack, [lessons]);
   const timeManage = {
@@ -88,26 +88,26 @@ export function DayComponent({dow}: IDayParams) {
 
   return (
       <div className="day">
-        <div className="day_top">
-          <p className="static">Расписание</p>
-          <p className="name">{weekDays[dow]}</p>
-        </div>
-        <div className="lessons_wrapper">
-          {lessons?.map((obj: ILesson, key) => {
-            return (<LessonComponent lesson={obj} key={key} index={key} timeManage={timeManage}/>);
-          })}
-        </div>
-        <div className="add">
-          <button
-              onClick={timeManage.add}
-          >
-            <img
-                src={plusImg}
-                className="add"
-                alt="img"
-          />
-        </button>
+          <div className="day_top">
+              <p className="static">Расписание</p>
+              <p className="name">{weekDays[dow]}</p>
+          </div>
+          <div className="lessons_wrapper">
+              {lessons?.map((obj: ILesson, key) => {
+                  return (<LessonComponent lesson={obj} key={key} index={key} timeManage={timeManage}/>);
+              })}
+          </div>
+          <div className="add">
+              <button
+                  onClick={timeManage.add}
+              >
+                  <img
+                      src={plusImg}
+                      className="add"
+                      alt="img"
+                  />
+              </button>
+          </div>
       </div>
-    </div>
   );
 }
