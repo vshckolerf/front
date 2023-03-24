@@ -1,7 +1,7 @@
-import {TimeRangeComponent} from "./TimeRangeComponent";
-import removeImg from "../assets/remove.svg";
 import React from "react";
+import removeImg from "../assets/remove.svg";
 import {ILesson} from "../interfaces/ILesson";
+import {TimeRangeComponent} from "./TimeRangeComponent";
 
 interface LessonComponentParams {
     index: number;
