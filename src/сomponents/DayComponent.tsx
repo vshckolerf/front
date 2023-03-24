@@ -52,8 +52,6 @@ export function DayComponent({dow}: IDayParams) {
                 pushToBack(ret);
                 return ret;
             });
-            
-        },
         add: async () => {
             await setLessons((prevState: ILesson[] | null) => {
                 const ret = [...(prevState || []), {
@@ -63,7 +61,6 @@ export function DayComponent({dow}: IDayParams) {
                 pushToBack(ret);
                 return ret;
             });
-            
         },
         remove: async (order: number) => {
             await setLessons((prevState: ILesson[] | null) => {
@@ -72,7 +69,6 @@ export function DayComponent({dow}: IDayParams) {
                 pushToBack(ret);
                 return ret;
             });
-            
         }
     }
 
