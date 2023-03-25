@@ -1,10 +1,10 @@
 import React, {useLayoutEffect, useState} from "react";
 import plusImg from "../assets/plus.svg";
 import "../css/DayComponent.css";
-import {dayFetch} from "../fetches/dayFetch";
-import {setDayFetch} from "../fetches/setDayFetch";
-import {ILesson} from "../interfaces/ILesson";
-import {LessonComponent} from "./LessonComponent";
+import dayFetch from "../fetches/dayFetch";
+import setDayFetch from "../fetches/setDayFetch";
+import ILesson from "../interfaces/ILesson";
+import LessonComponent from "./LessonComponent";
 
 
 interface IDayParams {
@@ -22,7 +22,7 @@ const weekDays = [
     "Воскресенье",
 ];
 
-export function DayComponent({dow}: IDayParams) {
+export default function DayComponent({dow}: IDayParams) {
     const [lessons, setLessons] = useState<ILesson[] | null>([]);
     useLayoutEffect(() => {
         dayFetch(dow)

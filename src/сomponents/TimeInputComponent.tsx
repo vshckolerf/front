@@ -5,7 +5,7 @@ interface TimeInputComponentParams {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export function TimeInputComponent({value, onChange}: TimeInputComponentParams) {
+export default function TimeInputComponent({value, onChange}: TimeInputComponentParams) {
     return (
         <input
             type="time"

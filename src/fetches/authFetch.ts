@@ -1,4 +1,4 @@
-export function authFetch(email: string, password: string) {
+export default function authFetch(email: string, password: string) {
     return new Promise<string>((resolve, reject) => {
         fetch(import.meta.env.VITE_API_URL + "auth/login", {
             method: "post",

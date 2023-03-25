@@ -1,5 +1,5 @@
 import React from "react";
-import {TimeInputComponent} from "./TimeInputComponent";
+import TimeInputComponent from "./TimeInputComponent";
 
 interface TimeRangeComponentParams {
     timeRange: {
@@ -9,7 +9,7 @@ interface TimeRangeComponentParams {
     changeTime: (type: boolean, time: string) => void
 }
 
-export function TimeRangeComponent({timeRange, changeTime}: TimeRangeComponentParams) {
+export default function TimeRangeComponent({timeRange, changeTime}: TimeRangeComponentParams) {
     return (
         <div className="time">
             <TimeInputComponent

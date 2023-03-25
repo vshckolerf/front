@@ -1,6 +1,6 @@
-import {ILesson} from "../interfaces/ILesson";
+import ILesson from "../interfaces/ILesson";
 
-export function setDayFetch(order: number, lessons: ILesson[] | null, jwt: string) {
+export default function setDayFetch(order: number, lessons: ILesson[] | null, jwt: string) {
     return new Promise<string>((resolve, reject) => {
         fetch(import.meta.env.VITE_API_URL + `schedule/${order}`, {
             method: "PUT",

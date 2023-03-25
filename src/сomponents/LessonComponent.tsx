@@ -1,7 +1,7 @@
 import React from "react";
 import removeImg from "../assets/remove.svg";
-import {ILesson} from "../interfaces/ILesson";
-import {TimeRangeComponent} from "./TimeRangeComponent";
+import ILesson from "../interfaces/ILesson";
+import TimeRangeComponent from "./TimeRangeComponent";
 
 interface LessonComponentParams {
     index: number;
@@ -12,7 +12,7 @@ interface LessonComponentParams {
     }
 }
 
-export function LessonComponent({index, lesson, timeManage}: LessonComponentParams) {
+export default function LessonComponent({index, lesson, timeManage}: LessonComponentParams) {
     return (
         <div className="lesson" key={index}>
             <div className="left">

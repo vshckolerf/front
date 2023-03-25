@@ -1,6 +1,6 @@
 import React from "react"
 
-export function ThemeSwitcherComponent() {
+export default function ThemeSwitcherComponent() {
     return (
         <div className="theme_switch">
             <input
