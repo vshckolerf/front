@@ -9,8 +9,8 @@ import {Route, Routes} from "react-router-dom";
 import "./css/color-light.css";
 
 import "./css/main.css";
-import {IndexPage} from "./pages/IndexPage";
-import {SchedulePage} from "./pages/SchedulePage";
+import IndexPage from "./pages/IndexPage";
+import SchedulePage from "./pages/SchedulePage";
 
 export default function App() {
     return (

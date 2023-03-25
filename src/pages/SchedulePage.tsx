@@ -2,9 +2,9 @@ import React, {useEffect, useRef, useState} from "react";
 import {useJwt} from "react-jwt";
 import {useNavigate} from "react-router-dom";
 import "../css/schedule.css";
-import {IUser} from "../interfaces/IUser";
-import {DayComponent} from "../сomponents/DayComponent";
-import {NavbarComponent} from "../сomponents/NavbarComponent";
+import IUser from "../interfaces/IUser";
+import DayComponent from "../сomponents/DayComponent";
+import NavbarComponent from "../сomponents/NavbarComponent";
 
 export function useHorizontalScroll() {
     const elRef = useRef<null | HTMLDivElement>(null);
@@ -26,7 +26,7 @@ export function useHorizontalScroll() {
     return elRef;
 }
 
-export function SchedulePage() {
+export default function SchedulePage() {
     const [days] = useState([[], [], [], [], [], [], []]);
     const {decodedToken, isExpired} = useJwt<IUser>(
         localStorage.getItem("jwt") as string

@@ -5,11 +5,11 @@ import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logoImg from "../assets/logo.svg";
 import "../css/index.css";
-import {authFetch} from "../fetches/authFetch";
-import {IUser} from "../interfaces/IUser";
-import {ThemeSwitcherComponent} from "../сomponents/ThemeSwitcherComponent";
+import authFetch from "../fetches/authFetch";
+import IUser from "../interfaces/IUser";
+import ThemeSwitcherComponent from "../сomponents/ThemeSwitcherComponent";
 
-export function IndexPage() {
+export default function IndexPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();

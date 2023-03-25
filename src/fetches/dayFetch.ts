@@ -3,7 +3,7 @@ interface ILesson {
     end: string;
 }
 
-export function dayFetch(order: number) {
+export default function dayFetch(order: number) {
     return new Promise<ILesson[]>((resolve, reject) => {
         fetch(import.meta.env.VITE_API_URL + `schedule/${order}`, {
             method: "get",
