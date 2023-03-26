@@ -37,7 +37,9 @@ export default function DayComponent({dow}: IDayParams) {
     const timeManage = {
         set: async (order: number, type: boolean, time: string) => {
             await setLessons((prevState: ILesson[] | null) => {
-                if (prevState == null) return [];
+                if (prevState == null) {
+                    return [];
+                }
                 const ret = prevState.map((v, k) => {
                     if (k == order) {
                         if (type) {
@@ -65,7 +67,9 @@ export default function DayComponent({dow}: IDayParams) {
         },
         remove: async (order: number) => {
             await setLessons((prevState: ILesson[] | null) => {
-                if (prevState == null) return [];
+                if (prevState == null) {
+                    return [];
+                }
                 const ret = prevState.filter((value, index) => index !== order);
                 pushToBack(ret);
                 return ret;
