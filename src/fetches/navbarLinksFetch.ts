@@ -5,23 +5,16 @@ export interface INavbarLink {
     url: string
 }
 
-export default function navbarLinksFetch() {
-    return new Promise<INavbarLink[]>((resolve, reject) => {
-        fetch(import.meta.env.VITE_API_URL + `navlinks`, {
-            method: "get",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            }
-        }).then((resp: Response) => {
-            if (resp.ok) {
-                resp.json().then((respObj) => {
-                    resolve(respObj);
-                });
-            } else {
-                reject(resp);
-            }
-        });
+export default async function navbarLinksFetch() {
+    const resp = await fetch(import.meta.env.VITE_API_URL + "navlinks", {
+        method: "get",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
     })
-
+    if (resp.ok)
+        return resp.json();
+    else 
+        throw new Error("Pizda djigurda tvoei programe, Mimbol")
 }
