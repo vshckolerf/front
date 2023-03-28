@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useLayoutEffect, useState } from "react"
 import {useNavigate} from "react-router-dom";
 import logoImg from "../assets/logo.svg";
+import navbarLinksFetch, { INavbarLink } from "../fetches/navbarLinksFetch";
 import IUser from "../interfaces/IUser";
 
 interface INavbarParams {
@@ -8,7 +9,13 @@ interface INavbarParams {
 }
 
 export default function NavbarComponent({userInfo}: INavbarParams) {
+    const [links, setLinks] = useState<INavbarLink[]>([]);
     const navigate = useNavigate();
+
+    useLayoutEffect(() => {
+        navbarLinksFetch()
+            .then((links: INavbarLink[]) => setLinks(links), console.error);
+    }, []);
     const exit = () => {
         localStorage.removeItem("jwt");
         navigate("/");
@@ -23,10 +30,7 @@ export default function NavbarComponent({userInfo}: INavbarParams) {
                 />
                 <nav>
                     <ul>
-                        <li className="nav_item active">Расписание</li>
-                        <li className="nav_item">Объявления</li>
-                        <li className="nav_item">Пользователи</li>
-                        <li className="nav_item">Файл</li>
+                        {links.map((link) => <li key={link.id} className="nav_item active">{link.name}</li>)}
                     </ul>
                 </nav>
             </div>
