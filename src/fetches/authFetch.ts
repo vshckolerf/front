@@ -1,6 +1,7 @@
-export function authFetch(email: string, password: string) {
-  return new Promise<string>((resolve, reject) => {
-    fetch(import.meta.env.VITE_API_URL + "auth/login", {
+export async function authFetch(email: string, password: string): Promise<string> | never {
+  const resp: Response = await fetch(
+    import.meta.env.VITE_API_URL + "auth/login",
+    {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -10,15 +11,14 @@ export function authFetch(email: string, password: string) {
         email: email,
         password: password,
       }),
-    }).then((resp: Response) => {
-      if (resp.ok) {
-        resp.json().then((respObj) => {
-          resolve(respObj.token as string);
-        });
-      } else {
-        reject(resp);
-      }
-    });
-  })
+    }
+  );
 
+  if (resp.ok) {
+    const respObj = await resp.json();
+
+    return respObj.token as string;
+  }
+
+  throw resp;
 }
