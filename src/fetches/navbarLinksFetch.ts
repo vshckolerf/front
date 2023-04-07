@@ -16,5 +16,5 @@ export default async function navbarLinksFetch() {
     if (resp.ok)
         return resp.json();
     else 
-        throw new Error("Pizda djigurda tvoei programe, Mimbol")
+        throw new Error("API Error GET /navlinks")
 }
