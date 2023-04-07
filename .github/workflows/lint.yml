@@ -16,9 +16,10 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - uses: sibiraj-s/action-eslint@v2
-        with:
-          github-token: ${{ secrets.TOKEN }}
-          eslint-args: '--quiet'
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
+      - run: npm run lint
+#      - uses: sibiraj-s/action-eslint@v2
+#        with:
+#          github-token: ${{ secrets.TOKEN }}
+#          eslint-args: '--quiet'
+#          extensions: 'js,jsx,ts,tsx'
+#          annotations: true

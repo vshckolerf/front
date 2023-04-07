@@ -1,18 +1,20 @@
-import { ThemeSwitcherComponent } from "../сomponents/ThemeSwitcherComponent";
-import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { useJwt } from "react-jwt";
+import React, {useState} from "react";
+import {useJwt} from "react-jwt";
+import {useNavigate} from "react-router-dom";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import logoImg from "../assets/logo.svg";
 import "../css/index.css";
-import "react-toastify/dist/ReactToastify.css";
-import { IUser } from "../interfaces/IUser";
-import { authFetch } from "../fetches/authFetch";
 
-export function IndexPage() {
+import IUser from "../interfaces/IUser";
+import authFetch from "../fetches/authFetch";
+import ThemeSwitcherComponent from "../сomponents/ThemeSwitcherComponent";
+
+export default function IndexPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  
   const auth = async () => {
     try {
       const token: string = await authFetch(email, password);
@@ -73,3 +75,4 @@ export function IndexPage() {
     </div>
   );
 }
+

@@ -1,6 +1,6 @@
-import { ILesson } from "../interfaces/ILesson";
+import ILesson from "../interfaces/ILesson";
 
-export async function setDayFetch(
+export default async function setDayFetch(
   order: number,
   lessons: ILesson[] | null,
   jwt: string
@@ -17,6 +17,7 @@ export async function setDayFetch(
       redirect: "follow",
     }
   );
+
 
   if (!response.ok) {
     // eslint:recommended

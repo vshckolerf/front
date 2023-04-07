@@ -4,24 +4,27 @@ import removeImg from "../assets/remove.svg";
 import { dayFetch } from "../fetches/dayFetch";
 import { setDayFetch } from "../fetches/setDayFetch";
 import "../css/DayComponent.css";
+import dayFetch from "../fetches/dayFetch";
+import setDayFetch from "../fetches/setDayFetch";
+import ILesson from "../interfaces/ILesson";
+import LessonComponent from "./LessonComponent";
+
 
 interface IDayParams {
-  dow: number;
+    dow: number;
 }
-interface ILesson {
-  start: string;
-  end: string;
-}
+
+
 const weekDays = [
-  "Понедельник",
-  "Вторник",
-  "Среда",
-  "Четверг",
-  "Пятница",
-  "Суббота",
-  "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+    "Воскресенье",
 ];
-export function DayComponent({ dow }: IDayParams) {
+export default function DayComponent({ dow }: IDayParams) {
   const [lessons, setLessons] = useState<ILesson[] | null>([]);
   useLayoutEffect(() => {
     const dayFetcher = async () => {

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx vite",
+    "dev": "npx vite --host",
     "build": "npm run lint && npx vite build",
     "preview": "npx vite preview",
     "lint": "npx eslint \"src/**/*.{js,jsx,ts,tsx}\"",
