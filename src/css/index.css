@@ -82,6 +82,7 @@ div.wrapper {
     padding: 12px;
     background: var(--blue-light);
     transition: background 0.3s ease;
+    cursor: pointer;
 }
 
 #button:hover {
