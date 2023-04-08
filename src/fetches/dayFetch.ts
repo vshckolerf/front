@@ -1,21 +1,21 @@
 import ILesson from "../interfaces/ILesson";
 
 export default async function dayFetch(order: number): Promise<ILesson[]> | never {
-  const resp: Response = await fetch(
-    import.meta.env.VITE_API_URL + `schedule/${order}`,
-    {
-      method: "get",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-    },
-  );
+    const resp: Response = await fetch(
+        import.meta.env.VITE_API_URL + `schedule/${order}`,
+        {
+            method: "get",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+        },
+    );
 
-  if (resp.ok) {
-    const respObj = await resp.json();
+    if (resp.ok) {
+        const respObj = await resp.json();
 
-    return respObj;
-  }
-  throw resp;
+        return respObj;
+    }
+    throw resp;
 }
