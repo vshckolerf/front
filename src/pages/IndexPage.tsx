@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import React, { useState } from "react";
 import { useJwt } from "react-jwt";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
