@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import plusImg from "../../assets/plus.svg";
 import removeImg from "../../assets/remove.svg";
 import dayFetch from "../../fetches/dayFetch";
@@ -9,6 +9,7 @@ import "./DaySchedule.css";
 
 interface IDayParams {
     dow: number;
+    weekDates: number[];
 }
 
 const weekDays = [
@@ -20,7 +21,7 @@ const weekDays = [
     "Суббота",
     "Воскресенье",
 ];
-export default function DaySchedule({ dow }: IDayParams) {
+export default function DaySchedule({ dow, weekDates }: IDayParams) {
     const [lessons, setLessons] = useState<ILesson[] | null>([]);
     useLayoutEffect(() => {
         const dayFetcher = async () => {
@@ -116,20 +117,13 @@ export default function DaySchedule({ dow }: IDayParams) {
         console.log(lessons);
     };
 
-    const getWeekDate = useCallback((weekDay: number) => {
-        const today = new Date();
-        const day = today.getDay();
-        const diff = today.getDate() - day + (day == 0 ? (-6 + weekDay):1);
-        return new Date(today.setDate(diff));
-    }, []);
-
     return (
         <div className="daySchedule" id="first-day">
             <div className="daySchedule_top">
                 <p className="static">Расписание</p>
                 <p className="name">
                     <span>{weekDays[dow]}</span>
-                    <span>{getWeekDate(dow).getDate()}</span>
+                    <span>{weekDates[dow]}</span>
                 </p>
             </div>
             <div className="daySchedule_items_wrapper">

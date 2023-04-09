@@ -5,6 +5,7 @@ import "../css/schedule.css";
 import IUser from "../interfaces/IUser";
 import DaySchedule from "../сomponents/DaySchedule/DaySchedule";
 import NavbarComponent from "../сomponents/Navbar/Navbar";
+import { useWeekDates } from "./hooks/useWeekDates";
 
 export function useHorizontalScroll() {
     const elRef = useRef<null | HTMLDivElement>(null);
@@ -30,6 +31,7 @@ export function useHorizontalScroll() {
 
 export default function SchedulePage() {
     const [days] = useState([[], [], [], [], [], [], []]);
+    const weekDates = useWeekDates();
     const {decodedToken, isExpired} = useJwt<IUser>(
         localStorage.getItem("jwt") as string
     );
@@ -51,7 +53,7 @@ export default function SchedulePage() {
             />
             <div className="days_wrapper" ref={scrollRef} style={{overflow: "auto"}}>
                 {days.map((e, k) => {
-                    return <DaySchedule key={k} dow={k}/>;
+                    return <DaySchedule key={k} dow={k} weekDates={weekDates} />;
                 })}
             </div>
         </>
