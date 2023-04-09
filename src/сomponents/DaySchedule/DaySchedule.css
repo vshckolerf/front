@@ -9,6 +9,57 @@
   background: var(--surface-surface);
 }
 
+.daySchedule_items_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.daySchedule .lesson {
+  display: flex;
+  height: 4vh;
+  justify-content: space-between;
+  width: 100%;
+  margin: 2vh 0;
+}
+
+.daySchedule .lesson .left {
+  display: flex;
+  align-items: center;
+}
+
+.daySchedule .lesson .right {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.daySchedule .lesson .time {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.daySchedule .lesson .les_time {
+  height: 100%;
+  background: var(--surface-surface-variant);
+  border-radius: 10px;
+  border: none;
+  width: 35%;
+  text-align: center;
+  color: var(--text-variant);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 3px 6px;
+  font-family: "Inter", sans-serif;
+}
+
+.daySchedule .lesson .les_time:focus {
+  outline: var(--blue-light) solid 3px;
+  color: var(--blue-light);
+}
+
 .daySchedule:first-child {
   margin-left: 3.1875rem;
 }
