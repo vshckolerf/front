@@ -65,6 +65,7 @@ div.add {
 div.add button {
     width: 100%;
     cursor: pointer;
+    padding: 0.28125rem 0rem;
 }
 
 img.add {
