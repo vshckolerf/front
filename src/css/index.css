@@ -71,6 +71,12 @@ div.wrapper {
     margin-top: 4.5vh;
 }
 
+button{
+    background: none;
+    border: none;
+}
+
+/* TODO: https://github.com/Agylam/front/issues/46 */
 #button {
     width: 100%;
     margin: 3% 0;
@@ -99,19 +105,4 @@ div.wrapper {
 
 span.mimbol {
     color: var(--blue-light);
-}
-
-.theme_switch {
-    position: fixed;
-    bottom: 2vh;
-    right: 2vw;
-}
-
-#theme {
-    display: none;
-}
-
-#theme_switcher {
-    width: auto;
-    height: 48px;
 }

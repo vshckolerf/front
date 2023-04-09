@@ -3,8 +3,8 @@ import {useJwt} from "react-jwt";
 import {useNavigate} from "react-router-dom";
 import "../css/schedule.css";
 import IUser from "../interfaces/IUser";
-import DayComponent from "../сomponents/DayComponent";
-import NavbarComponent from "../сomponents/NavbarComponent";
+import DaySchedule from "../сomponents/DaySchedule/DaySchedule";
+import NavbarComponent from "../сomponents/Navbar/Navbar";
 
 export function useHorizontalScroll() {
     const elRef = useRef<null | HTMLDivElement>(null);
@@ -51,7 +51,7 @@ export default function SchedulePage() {
             />
             <div className="days_wrapper" ref={scrollRef} style={{overflow: "auto"}}>
                 {days.map((e, k) => {
-                    return <DayComponent key={k} dow={k}/>;
+                    return <DaySchedule key={k} dow={k}/>;
                 })}
             </div>
         </>

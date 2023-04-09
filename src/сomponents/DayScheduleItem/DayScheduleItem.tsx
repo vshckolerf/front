@@ -1,7 +1,9 @@
 import React from "react";
-import removeImg from "../assets/remove.svg";
-import ILesson from "../interfaces/ILesson";
-import TimeRangeComponent from "./TimeRangeComponent";
+import removeImg from "../../assets/remove.svg";
+import ILesson from "../../interfaces/ILesson";
+import TimeRangeComponent from "../TimeRange/TimeRange";
+
+import './DayScheduleItem.css';
 
 interface LessonComponentParams {
     index: number;
@@ -12,9 +14,9 @@ interface LessonComponentParams {
     }
 }
 
-export default function LessonComponent({index, lesson, timeManage}: LessonComponentParams) {
+export default function DayScheduleItem({index, lesson, timeManage}: LessonComponentParams) {
     return (
-        <div className="lesson" key={index}>
+        <div className="dayScheduleItem" key={index}>
             <div className="left">
                 <p className="number">{index + 1}-й</p>
             </div>

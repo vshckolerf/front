@@ -7,7 +7,7 @@ import logoImg from "../assets/logo.svg";
 import "../css/index.css";
 import authFetch from "../fetches/authFetch";
 import IUser from "../interfaces/IUser";
-import ThemeSwitcherComponent from "../сomponents/ThemeSwitcherComponent";
+import ThemeSwitcher from "../сomponents/ThemeSwitcher/ThemeSwitcher";
 
 export default function IndexPage() {
     const [email, setEmail] = useState("");
@@ -75,7 +75,7 @@ export default function IndexPage() {
                     <span className="mimbol">@mimbol</span>
                 </p>
             </div>
-            <ThemeSwitcherComponent/>
+            <ThemeSwitcher/>
         </div>
     );
 }
