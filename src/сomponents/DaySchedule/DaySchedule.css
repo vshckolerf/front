@@ -1,0 +1,26 @@
+.daySchedule {
+  height: min-content;
+  width: 20vw;
+  margin: 0 1vw;
+  border: 2px solid var(--surface-surface-stroke);
+  border-radius: 30px;
+  padding: 3.2vh 2.6vw;
+  min-width: 300px;
+  background: var(--surface-surface);
+}
+
+.daySchedule:first-child {
+  margin-left: 3.1875rem;
+}
+
+.daySchedule .daySchedule_top {
+  padding-top: 2vh;
+}
+
+.daySchedule_top p.name {
+  font-size: 1.938rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-h1);
+  margin: 2vh 0 5vh;
+}

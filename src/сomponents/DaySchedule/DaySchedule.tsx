@@ -1,16 +1,15 @@
-import plusImg from "../assets/plus.svg";
+import plusImg from "../../assets/plus.svg";
 import React, { useLayoutEffect, useState } from "react";
-import removeImg from "../assets/remove.svg";
-import "../css/DayComponent.css";
-import dayFetch from "../fetches/dayFetch";
-import setDayFetch from "../fetches/setDayFetch";
-import ILesson from "../interfaces/ILesson";
+import removeImg from "../../assets/remove.svg";
+import dayFetch from "../../fetches/dayFetch";
+import setDayFetch from "../../fetches/setDayFetch";
+import ILesson from "../../interfaces/ILesson";
 
+import "./DaySchedule.css";
 
 interface IDayParams {
     dow: number;
 }
-
 
 const weekDays = [
     "Понедельник",
@@ -117,12 +116,12 @@ export default function DayComponent({ dow }: IDayParams) {
         console.log(lessons);
     };
     return (
-        <div className="day" id="first-day">
-            <div className="day_top">
+        <div className="daySchedule" id="first-day">
+            <div className="daySchedule_top">
                 <p className="static">Расписание</p>
                 <p className="name">{weekDays[dow]}</p>
             </div>
-            <div className="lessons_wrapper">
+            <div className="daySchedule_items_wrapper">
                 {lessons?.map((obj: ILesson, key) => {
                     return (
                         <div className="lesson" key={key}>

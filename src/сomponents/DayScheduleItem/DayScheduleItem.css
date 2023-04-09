@@ -1,0 +1,13 @@
+.dayScheduleItem {
+  display: flex;
+  height: 4vh;
+  justify-content: space-between;
+  width: 100%;
+  margin: 2vh 0;
+}
+
+.dayScheduleItem .right {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}

@@ -1,13 +1,15 @@
 import React from "react"
 import {useNavigate} from "react-router-dom";
-import logoImg from "../assets/logo.svg";
-import IUser from "../interfaces/IUser";
+import logoImg from "../../assets/logo.svg";
+import IUser from "../../interfaces/IUser";
+
+import "./Navbar.css";
 
 interface INavbarParams {
     userInfo: IUser | null;
 }
 
-export default function NavbarComponent({userInfo}: INavbarParams) {
+export default function Navbar({userInfo}: INavbarParams) {
     const navigate = useNavigate();
     const exit = () => {
         localStorage.removeItem("jwt");

@@ -7,8 +7,8 @@ import logoImg from "../assets/logo.svg";
 import "../css/index.css";
 
 import IUser from "../interfaces/IUser";
+import ThemeSwitcher from "../сomponents/ThemeSwitcher/ThemeSwitcher";
 import authFetch from "../fetches/authFetch";
-import ThemeSwitcherComponent from "../сomponents/ThemeSwitcherComponent";
 
 export default function IndexPage() {
     const [email, setEmail] = useState("");
@@ -72,8 +72,8 @@ export default function IndexPage() {
                 <p id="rem_pass">
                     Для смены пароля свяжитесь с <span className="mimbol">@mimbol</span>
                 </p>
+                <ThemeSwitcher/>
             </form>
-            <ThemeSwitcherComponent />
         </div>
     );
 }
