@@ -45,6 +45,11 @@ div.remove {
     align-items: center;
 }
 
+div.remove button {
+    width: 100%;
+    cursor: pointer;
+}
+
 img.remove {
     width: auto;
 }
@@ -55,6 +60,11 @@ div.add {
     justify-content: center;
     border: 2px solid var(--surface-surface-stroke);
     border-radius: 10px;
+}
+
+div.add button {
+    width: 100%;
+    cursor: pointer;
 }
 
 img.add {
