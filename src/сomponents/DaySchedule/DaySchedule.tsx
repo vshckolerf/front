@@ -1,12 +1,11 @@
-import plusImg from "../assets/plus.svg";
+import plusImg from "../../assets/plus.svg";
 import React, { useLayoutEffect, useState } from "react";
-import removeImg from "../assets/remove.svg";
-import "../css/DayComponent.css";
+import removeImg from "../../assets/remove.svg";
 import dayFetch from "../../fetches/dayFetch";
 import setDayFetch from "../../fetches/setDayFetch";
 import ILesson from "../../interfaces/ILesson";
 
-import './DaySchedule.css';
+import "./DaySchedule.css";
 
 interface IDayParams {
     dow: number;

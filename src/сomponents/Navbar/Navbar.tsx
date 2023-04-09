@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import logoImg from "../../assets/logo.svg";
 import IUser from "../../interfaces/IUser";
 
-import './Navbar.css';
+import "./Navbar.css";
 
 interface INavbarParams {
     userInfo: IUser | null;

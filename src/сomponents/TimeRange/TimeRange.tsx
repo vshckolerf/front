@@ -1,7 +1,7 @@
 import React from "react";
 import TimeInput from "../TimeInput/TimeInput";
 
-import './TimeRange.css';
+import "./TimeRange.css";
 
 interface TimeRangeComponentParams {
     timeRange: {

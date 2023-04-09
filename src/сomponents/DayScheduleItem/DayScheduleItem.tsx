@@ -3,7 +3,7 @@ import removeImg from "../../assets/remove.svg";
 import ILesson from "../../interfaces/ILesson";
 import TimeRangeComponent from "../TimeRange/TimeRange";
 
-import './DayScheduleItem.css';
+import "./DayScheduleItem.css";
 
 interface LessonComponentParams {
     index: number;

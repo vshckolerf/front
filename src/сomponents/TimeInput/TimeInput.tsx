@@ -1,6 +1,6 @@
 import React from "react";
 
-import './TimeInput.css';
+import "./TimeInput.css";
 
 interface TimeInputComponentParams {
     value: string;

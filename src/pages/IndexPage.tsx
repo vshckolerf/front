@@ -72,7 +72,7 @@ export default function IndexPage() {
                 <p id="rem_pass">
                     Для смены пароля свяжитесь с <span className="mimbol">@mimbol</span>
                 </p>
-            <ThemeSwitcher/>
+                <ThemeSwitcher/>
             </form>
         </div>
     );

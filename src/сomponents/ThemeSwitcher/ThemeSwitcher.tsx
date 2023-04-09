@@ -1,6 +1,6 @@
 import React from "react"
 
-import './ThemeSwitcher.css';
+import "./ThemeSwitcher.css";
 
 export default function ThemeSwitcher() {
     return (
