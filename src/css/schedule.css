@@ -53,6 +53,8 @@ div.add {
     width: 100%;
     display: flex;
     justify-content: center;
+    border: 2px solid var(--surface-surface-stroke);
+    border-radius: 10px;
 }
 
 img.add {
@@ -64,4 +66,3 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     width: 0;
     display: none;
 }
-
