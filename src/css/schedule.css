@@ -47,7 +47,6 @@ div.remove {
 
 img.remove {
     width: auto;
-    height: 0.875rem;
 }
 
 div.add {
@@ -58,7 +57,6 @@ div.add {
 
 img.add {
     width: auto;
-    height: 0.875rem;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
