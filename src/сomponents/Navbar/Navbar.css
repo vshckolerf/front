@@ -1,4 +1,6 @@
 .nav_wrapper {
+  position: sticky;
+  top: 1.875rem;
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -13,8 +15,6 @@
   padding: 1.875rem 3.125rem;
   margin: 2.1875rem;
   margin-bottom: 1.5625rem;
-  position: fixed;
-  width: 90vw;
   background: var(--surface-surface);
 }
 

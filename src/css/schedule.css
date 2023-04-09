@@ -20,8 +20,6 @@ body {
 
 .days_wrapper {
     display: flex;
-    padding-top: 20vh;
-    height: 100%;
 }
 
 p.static {
@@ -49,7 +47,7 @@ div.remove {
 
 img.remove {
     width: auto;
-    height: 1.4vh;
+    height: 0.875rem;
 }
 
 div.add {
@@ -60,7 +58,7 @@ div.add {
 
 img.add {
     width: auto;
-    height: 5vh;
+    height: 0.875rem;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {

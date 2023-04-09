@@ -1,10 +1,10 @@
 .daySchedule {
   height: min-content;
   width: 20vw;
-  margin: 0 1vw;
+  margin: 0 1.09375rem;
   border: 2px solid var(--surface-surface-stroke);
   border-radius: 30px;
-  padding: 3.2vh 2.6vw;
+  padding: 1rem 1rem;
   min-width: 300px;
   background: var(--surface-surface);
 }
@@ -17,10 +17,8 @@
 
 .daySchedule .lesson {
   display: flex;
-  height: 4vh;
   justify-content: space-between;
   width: 100%;
-  margin: 2vh 0;
 }
 
 .daySchedule .lesson .left {
@@ -64,14 +62,9 @@
   margin-left: 3.1875rem;
 }
 
-.daySchedule .daySchedule_top {
-  padding-top: 2vh;
-}
-
 .daySchedule_top p.name {
   font-size: 1.938rem;
   display: flex;
   justify-content: space-between;
   color: var(--text-h1);
-  margin: 2vh 0 5vh;
 }
