@@ -132,7 +132,7 @@ export default function DayComponent({ dow }: IDayParams) {
                                 <div className="time">
                                     <input
                                         type="time"
-                                        className="les_time"
+                                        className="les_time les_time_left"
                                         value={lessons[key].start}
                                         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                                             changeTime(key, false, event.target.value)
@@ -141,7 +141,7 @@ export default function DayComponent({ dow }: IDayParams) {
                                     <p className="wall">:</p>
                                     <input
                                         type="time"
-                                        className="les_time"
+                                        className="les_time les_time_right"
                                         value={lessons[key].end}
                                         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                                             changeTime(key, true, event.target.value)

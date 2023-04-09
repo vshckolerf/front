@@ -4,7 +4,7 @@
   margin: 0 1.09375rem;
   border: 2px solid var(--surface-surface-stroke);
   border-radius: 30px;
-  padding: 1rem 1rem;
+  padding: 2.1875rem 1.875rem;
   min-width: 300px;
   background: var(--surface-surface);
 }
@@ -19,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 1.5625rem;
 }
 
 .daySchedule .lesson .left {
@@ -34,27 +35,39 @@
 
 .daySchedule .lesson .time {
   display: flex;
-  width: 85%;
   justify-content: space-between;
   align-items: center;
+  margin-right: 0.625rem;
 }
 
 .daySchedule .lesson .les_time {
-  height: 100%;
   background: var(--surface-surface-variant);
   border-radius: 10px;
   border: none;
-  width: 35%;
+  width: 4.4375rem;
+  height: 1.9375rem;
   text-align: center;
   color: var(--text-variant);
   font-weight: 600;
   font-size: 1rem;
-  padding: 3px 6px;
   font-family: "Inter", sans-serif;
+}
+
+.daySchedule .lesson .les_time.les_time_left {
+  margin-right: 0.625rem;
+}
+
+.daySchedule .lesson .les_time.les_time_right {
+  margin-left: 0.75rem;
 }
 
 .daySchedule .lesson .les_time:focus {
   outline: var(--blue-light) solid 3px;
+  color: var(--blue-light);
+}
+
+.daySchedule .lesson .wall {
+  margin: 0rem;
   color: var(--blue-light);
 }
 
@@ -67,4 +80,6 @@
   display: flex;
   justify-content: space-between;
   color: var(--text-h1);
+  margin: 0.3125rem 0px;
+  margin-bottom: 1.5625rem;
 }
