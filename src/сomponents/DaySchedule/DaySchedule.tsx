@@ -1,5 +1,5 @@
-import plusImg from "../../assets/plus.svg";
 import React, { useLayoutEffect, useState } from "react";
+import plusImg from "../../assets/plus.svg";
 import removeImg from "../../assets/remove.svg";
 import dayFetch from "../../fetches/dayFetch";
 import setDayFetch from "../../fetches/setDayFetch";
@@ -9,6 +9,7 @@ import "./DaySchedule.css";
 
 interface IDayParams {
     dow: number;
+    weekDates: number[];
 }
 
 const weekDays = [
@@ -20,7 +21,7 @@ const weekDays = [
     "Суббота",
     "Воскресенье",
 ];
-export default function DayComponent({ dow }: IDayParams) {
+export default function DaySchedule({ dow, weekDates }: IDayParams) {
     const [lessons, setLessons] = useState<ILesson[] | null>([]);
     useLayoutEffect(() => {
         const dayFetcher = async () => {
@@ -115,11 +116,15 @@ export default function DayComponent({ dow }: IDayParams) {
         await pushToBack(awaitedState);
         console.log(lessons);
     };
+
     return (
         <div className="daySchedule" id="first-day">
             <div className="daySchedule_top">
                 <p className="static">Расписание</p>
-                <p className="name">{weekDays[dow]}</p>
+                <p className="name">
+                    <span>{weekDays[dow]}</span>
+                    <span>{weekDates[dow]}</span>
+                </p>
             </div>
             <div className="daySchedule_items_wrapper">
                 {lessons?.map((obj: ILesson, key) => {
@@ -132,7 +137,7 @@ export default function DayComponent({ dow }: IDayParams) {
                                 <div className="time">
                                     <input
                                         type="time"
-                                        className="les_time"
+                                        className="les_time les_time_left"
                                         value={lessons[key].start}
                                         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                                             changeTime(key, false, event.target.value)
@@ -141,7 +146,7 @@ export default function DayComponent({ dow }: IDayParams) {
                                     <p className="wall">:</p>
                                     <input
                                         type="time"
-                                        className="les_time"
+                                        className="les_time les_time_right"
                                         value={lessons[key].end}
                                         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
                                             changeTime(key, true, event.target.value)
