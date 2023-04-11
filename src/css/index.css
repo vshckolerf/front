@@ -1,8 +1,4 @@
 @import url("main.css");
-#root{
-    justify-content: center;
-    display: flex;
-}
 * {
     font-style: normal;
     font-weight: 500;
