@@ -2,9 +2,10 @@ import React, {useEffect, useRef, useState} from "react";
 import {useJwt} from "react-jwt";
 import {useNavigate} from "react-router-dom";
 import "../css/schedule.css";
-import {IUser} from "../interfaces/IUser";
-import {DayComponent} from "../сomponents/DayComponent";
-import {NavbarComponent} from "../сomponents/NavbarComponent";
+import IUser from "../interfaces/IUser";
+import DaySchedule from "../сomponents/DaySchedule/DaySchedule";
+import NavbarComponent from "../сomponents/Navbar/Navbar";
+import { useWeekDates } from "./hooks/useWeekDates";
 
 export function useHorizontalScroll() {
     const elRef = useRef<null | HTMLDivElement>(null);
@@ -12,7 +13,9 @@ export function useHorizontalScroll() {
         const el = elRef.current;
         if (el) {
             const onWheel = (e: { deltaY: number; preventDefault: () => void; }) => {
-                if (e.deltaY == 0) return;
+                if (e.deltaY == 0){
+                    return;
+                }
                 e.preventDefault();
                 el.scrollTo({
                     left: el.scrollLeft + e.deltaY * 3,
@@ -26,8 +29,9 @@ export function useHorizontalScroll() {
     return elRef;
 }
 
-export function SchedulePage() {
+export default function SchedulePage() {
     const [days] = useState([[], [], [], [], [], [], []]);
+    const weekDates = useWeekDates();
     const {decodedToken, isExpired} = useJwt<IUser>(
         localStorage.getItem("jwt") as string
     );
@@ -36,7 +40,9 @@ export function SchedulePage() {
         localStorage.removeItem("jwt");
         navigate("/");
     };
-    if (isExpired) exit();
+    if (isExpired) {
+        exit();
+    }
     const userInfo = decodedToken;
     const scrollRef = useHorizontalScroll();
 
@@ -47,7 +53,7 @@ export function SchedulePage() {
             />
             <div className="days_wrapper" ref={scrollRef} style={{overflow: "auto"}}>
                 {days.map((e, k) => {
-                    return <DayComponent key={k} dow={k}/>;
+                    return <DaySchedule key={k} dow={k} weekDates={weekDates} />;
                 })}
             </div>
         </>

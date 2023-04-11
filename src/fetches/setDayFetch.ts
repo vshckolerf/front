@@ -1,19 +1,30 @@
-import {ILesson} from "../interfaces/ILesson";
+import ILesson from "../interfaces/ILesson";
 
-export function setDayFetch(order: number, lessons: ILesson[] | null, jwt: string) {
-    return new Promise<string>((resolve, reject) => {
-        fetch(import.meta.env.VITE_API_URL + `schedule/${order}`, {
+export default async function setDayFetch(
+    order: number,
+    lessons: ILesson[] | null,
+    jwt: string
+): Promise<string> | never {
+    const response = await fetch(
+        import.meta.env.VITE_API_URL + `schedule/${order}`,
+        {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${jwt}`
+                Authorization: `Bearer ${jwt}`,
             },
             body: JSON.stringify(lessons),
-            redirect: "follow"
-        })
-            .then(response => response.json())
-            .then(result => resolve(result))
-            .catch(error => reject(error));
-    });
+            redirect: "follow",
+        }
+    );
 
+
+    if (!response.ok) {
+    // eslint:recommended
+    // no-useless-catch prohibits to use try/catch for catching possible fetch error
+        throw new Error(`Error: Request ended with status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result;
 }

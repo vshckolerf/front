@@ -1,5 +1,7 @@
 import React from "react";
-import {TimeInputComponent} from "./TimeInputComponent";
+import TimeInput from "../TimeInput/TimeInput";
+
+import "./TimeRange.css";
 
 interface TimeRangeComponentParams {
     timeRange: {
@@ -9,14 +11,14 @@ interface TimeRangeComponentParams {
     changeTime: (type: boolean, time: string) => void
 }
 
-export function TimeRangeComponent({timeRange, changeTime}: TimeRangeComponentParams) {
+export default function TimeRangeComponent({timeRange, changeTime}: TimeRangeComponentParams) {
     return (
-        <div className="time">
-            <TimeInputComponent
+        <div className="time_range">
+            <TimeInput
                 value={timeRange.start}
                 onChange={(event) => changeTime(false, event.target.value)}/>
-            <p className="wall">:</p>
-            <TimeInputComponent
+            <p className="time_range_wall">:</p>
+            <TimeInput
                 value={timeRange.end}
                 onChange={(event) => changeTime(true, event.target.value)}/>
         </div>

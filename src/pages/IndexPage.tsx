@@ -1,50 +1,51 @@
-import React, {useState} from "react";
-import {useJwt} from "react-jwt";
-import {useNavigate} from "react-router-dom";
-import {toast, ToastContainer} from "react-toastify";
+import React, { useState } from "react";
+import { useJwt } from "react-jwt";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logoImg from "../assets/logo.svg";
 import "../css/index.css";
-import {authFetch} from "../fetches/authFetch";
-import {IUser} from "../interfaces/IUser";
-import {ThemeSwitcherComponent} from "../сomponents/ThemeSwitcherComponent";
 
-export function IndexPage() {
+import IUser from "../interfaces/IUser";
+import ThemeSwitcher from "../сomponents/ThemeSwitcher/ThemeSwitcher";
+import authFetch from "../fetches/authFetch";
+
+export default function IndexPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const auth = () => {
-        return authFetch(email, password)
-            .then((token: string) => {
-                localStorage.setItem("jwt", token);
-                toast.success("Успешно!", {
-                    position: toast.POSITION.BOTTOM_LEFT,
-                    autoClose: 1000,
-                    onClose: () => {
-                        navigate("/schedule");
-                    },
-                });
-            }, () => {
-                toast.error("Неверные почта или пароль!", {
-                    position: toast.POSITION.BOTTOM_LEFT,
-                    autoClose: 2000,
-                });
-            });
-    }
 
-    const {isExpired} = useJwt<IUser>(localStorage.getItem("jwt") as string);
+    const auth = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            // need to change email of users in database for email-like (qwerty@qwerty.com) format
+            const token: string = await authFetch(email, password);
+
+            localStorage.setItem("jwt", token);
+            toast.success("Успешно!", {
+                position: toast.POSITION.BOTTOM_LEFT,
+                autoClose: 1000,
+                onClose: () => {
+                    navigate("/schedule");
+                },
+            });
+        } catch (e) {
+            toast.error("Неверные почта или пароль!", {
+                position: toast.POSITION.BOTTOM_LEFT,
+                autoClose: 2000,
+            });
+        }
+    };
+
+    const { isExpired } = useJwt<IUser>(localStorage.getItem("jwt") as string);
     if (!isExpired) {
         navigate("/schedule");
     }
     return (
         <div className="wrapper">
-            <ToastContainer limit={3}/>
-            <div id="auth">
-                <img
-                    src={logoImg}
-                    alt=""
-                    id="logo"
-                />
+            <ToastContainer limit={3} />
+            <form id="auth" onSubmit={auth}>
+                <img src={logoImg} alt="" id="logo" />
                 <div id="auth_inputs">
                     <input
                         type="email"
@@ -64,18 +65,15 @@ export function IndexPage() {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                     />
-                    <button
-                        id="button"
-                        onClick={auth}>
+                    <button id="button" type="submit">
                         Войти
                     </button>
                 </div>
                 <p id="rem_pass">
-                    Для смены пароля свяжитесь с{" "}
-                    <span className="mimbol">@mimbol</span>
+                    Для смены пароля свяжитесь с <span className="mimbol">@mimbol</span>
                 </p>
-            </div>
-            <ThemeSwitcherComponent/>
+                <ThemeSwitcher/>
+            </form>
         </div>
     );
 }

@@ -19,12 +19,12 @@ div#swal2-html-container {
 }
 
 #root {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
-
-@media (max-height: 1000px) {
-    .days_wrapper {
-        padding-top: 30vh;
-    }
+body{
+    height: 100vh;
 }
