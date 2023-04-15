@@ -21,10 +21,14 @@ div#swal2-html-container {
 #root {
     width: 100%;
     height: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
 }
+#root:has(> .wrapper) {
+    justify-content: center;
+}
+
 body{
     height: 100vh;
 }
