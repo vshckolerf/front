@@ -1,9 +1,9 @@
-export default async function announcementFetch(announcement: string): Promise<string> | never {
+export default async function announcementFetch(announcement: string, jwt: string): Promise<string> | never {
     const resp: Response = await fetch(import.meta.env.VITE_API_URL + "notification", {
         method: "post",
         headers: {
-            Accept: "application/json",
             "Content-Type": "application/json",
+            Authorization: `Bearer ${jwt}`,
         },
         body: JSON.stringify({
             announcement,

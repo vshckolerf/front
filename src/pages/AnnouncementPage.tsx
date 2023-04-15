@@ -29,7 +29,7 @@ export default function AnnouncementPage() {
             if (!text) {
                 throw new Error();
             }
-            await announcementFetch(text);
+            await announcementFetch(text, localStorage.getItem("jwt") as string);
             toast.success("Успешно!", {
                 position: toast.POSITION.BOTTOM_LEFT,
                 autoClose: 1000,
