@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 :root {
     --blue-light: #0057ff;
     --blue-dark: #004ce0;
@@ -18,6 +19,12 @@ div#swal2-html-container {
 }
 
 #root {
-    width: 100vw;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+body{
     height: 100vh;
 }
