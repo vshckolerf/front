@@ -12,8 +12,8 @@ npm run dev
 ### Для запуска внутри docker-контейнера:
 Build можно делать только при первом запуске.
 ```cmd
-docker-compose -f .\docker-compose.dev.yml build
-docker-compose -f .\docker-compose.dev.yml up
+docker-compose build
+docker-compose up
 ```
 ---
  ---
