@@ -10,7 +10,7 @@ services:
     ports:
       - "5173:5173"
     env_file:
-      - .env.production
+      - .env.example
     volumes:
       - ./src:/srv/app/frontend/src
       - ./index.html:/srv/app/frontend/index.html
