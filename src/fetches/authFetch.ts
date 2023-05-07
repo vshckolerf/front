@@ -1,5 +1,5 @@
 export default async function authFetch(email: string, password: string): Promise<string> | never {
-    const resp: Response = await fetch(import.meta.env.VITE_API_URL + "auth/login", {
+    const resp: Response = await fetch("/api/auth/login", {
         method: "post",
         headers: {
             Accept: "application/json",

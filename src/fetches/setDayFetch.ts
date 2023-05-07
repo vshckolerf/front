@@ -6,7 +6,7 @@ export default async function setDayFetch(
     jwt: string
 ): Promise<string> | never {
     const response = await fetch(
-        import.meta.env.VITE_API_URL + `schedule/${order}`,
+        `/api/schedule/${order}`,
         {
             method: "PUT",
             headers: {
