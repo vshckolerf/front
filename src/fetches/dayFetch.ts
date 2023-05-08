@@ -2,7 +2,7 @@ import ILesson from "../interfaces/ILesson";
 
 export default async function dayFetch(order: number): Promise<ILesson[]> | never {
     const resp: Response = await fetch(
-        import.meta.env.VITE_API_URL + `schedule/${order}`,
+        `/api/schedule/${order}`,
         {
             method: "get",
             headers: {
