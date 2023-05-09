@@ -11,7 +11,8 @@ jobs:
         with:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.SSH_USER }}
-            key: ${{ secrets.SSH_KEY }}
-            passphrase: ${{ secrets.SSH_KEYPASS }}
+            password: ${{ secrets.SSH_PASSWORD }}
+            # key: ${{ secrets.SSH_KEY }}
+            # passphrase: ${{ secrets.SSH_KEYPASS }}
             script: |
                 cd ~/stand && docker-compose pull && docker-compose up -d
