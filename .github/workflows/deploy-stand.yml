@@ -12,6 +12,6 @@ jobs:
             host: ${{ secrets.SSH_HOST }}
             username: ${{ secrets.SSH_USER }}
             key: ${{ secrets.SSH_KEY }}
-            port: 22
+            port: 23
             passphrase: ${{ secrets.SSH_KEYPASS }}
             script: "ls -la"
