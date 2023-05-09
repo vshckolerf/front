@@ -13,4 +13,5 @@ jobs:
             username: ${{ secrets.SSH_USER }}
             key: ${{ secrets.SSH_KEY }}
             passphrase: ${{ secrets.SSH_KEYPASS }}
-            script: "ls -la"
+            script: |
+                cd stand && docker-compose pull && docker-compose up -d
