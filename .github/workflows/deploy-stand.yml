@@ -1,0 +1,21 @@
+name: Deploy stand
+
+on:
+  push:
+    branches: [ "cicd-test" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.SSH_USER }}
+            key: ${{ secrets.SSH_KEY }}
+            script: |
+                cd ~/stand && docker-compose pull && docker-compose up -d
